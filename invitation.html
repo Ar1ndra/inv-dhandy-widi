@@ -43,12 +43,23 @@
         50% { transform: scale(1.15); }
         100% { transform: scale(1); }
       }
+      .reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.9s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
     </style>
   </head>
   <body class="bg-black text-gray-800">
 
     <!-- Hero (Revised) -->
-    <section class="relative min-h-screen flex items-center justify-center text-center px-6 overflow-hidden">
+    <section class="reveal relative min-h-screen flex items-center justify-center text-center px-6 overflow-hidden">
 
 
     <!-- Background -->
@@ -76,7 +87,7 @@
 
 
     <section
-    class="relative min-h-screen flex items-center justify-center text-white px-6"
+    class="reveal relative min-h-screen flex items-center justify-center text-white px-6"
     style="background-image: url('assets/prewed13.jpg'); background-size: cover; background-position: center;"
   >
     <!-- overlay -->
@@ -102,8 +113,8 @@
 
     <!-- section pengantin -->
     <section
-    class="relative min-h-screen flex items-end text-white px-6 pb-20"
-    style="background-image: url('assets/Dandot.jpeg'); background-size: cover; background-position: center;"
+    class="reveal relative min-h-screen flex items-end text-white px-6 pb-20"
+    style="background-image: url('assets/Dandot.JPG'); background-size: cover; background-position: center;"
   >
     <!-- overlay -->
     <div class="absolute inset-0 bg-black/50"></div>
@@ -135,8 +146,8 @@
   </section>
 
   <section
-    class="relative min-h-screen flex items-end text-white px-6 pb-20"
-    style="background-image: url('assets/kakWidi.jpeg'); background-size: cover; background-position: center;"
+    class="reveal relative min-h-screen flex items-end text-white px-6 pb-20"
+    style="background-image: url('assets/kakWidi.JPG'); background-size: cover; background-position: center;"
   >
     <!-- overlay -->
     <div class="absolute inset-0 bg-black/50"></div>
@@ -175,16 +186,16 @@
     <section class="px-6 mb-24">
       <h2 class="text-3xl text-white text-center mb-12">Our Moments</h2>
       <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 auto-rows-[180px] gap-4">
-        <div class="col-span-2 row-span-2"><img src="assets/prewed-1.jpg" class="w-full h-full object-cover rounded-2xl"></div>
-        <div class="row-span-2"><img src="assets/prewed-2.jpg" class="w-full h-full object-cover rounded-2xl"></div>
-        <div><img src="assets/prewed14.jpg" class="w-full h-full object-cover rounded-2xl"></div>
-        <div><img src="assets/prewed-4.jpg" class="w-full h-full object-cover rounded-2xl"></div>
-        <div class="col-span-2 row-span-2"><img src="assets/prewed-6.jpg" class="w-full h-full object-cover rounded-2xl"></div>
+        <div class="reveal col-span-2 row-span-2"><img src="assets/prewed-1.jpg" class="w-full h-full object-cover rounded-2xl"></div>
+        <div class="reveal row-span-2"><img src="assets/prewed-2.jpg" class="w-full h-full object-cover rounded-2xl"></div>
+        <div class="reveal"><img src="assets/prewed14.jpg" class="w-full h-full object-cover rounded-2xl"></div>
+        <div class="reveal"><img src="assets/prewed-4.jpg" class="w-full h-full object-cover rounded-2xl"></div>
+        <div class="reveal col-span-2 row-span-2"><img src="assets/prewed-6.jpg" class="w-full h-full object-cover rounded-2xl"></div>
       </div>
     </section>
 
   <section
-    class="relative min-h-screen flex items-center justify-center text-center text-white px-6"
+    class="revel relative min-h-screen flex items-center justify-center text-center text-white px-6"
     style="background-image: url('assets/prewed-5.jpg'); background-size: cover; background-position: center;"
   >
     <!-- overlay tipis -->
@@ -223,7 +234,7 @@
 
   <section
     id="countdown-section"
-    class="relative min-h-screen flex flex-col justify-end text-white px-6 pb-16"
+    class="reveal relative min-h-screen flex flex-col justify-end text-white px-6 pb-16"
     style="background-image: url('assets/prewed-6.jpg'); background-size: cover; background-position: center;"
   >
     <!-- overlay tipis -->
@@ -269,7 +280,7 @@
   </section>
 
   <section
-  class="relative min-h-screen bg-cover bg-center text-white"
+  class="reveal relative min-h-screen bg-cover bg-center text-white"
   style="background-image: url('/assets/prewed15.jpg');"
 >
   <!-- overlay -->
@@ -384,6 +395,21 @@
         e.stopPropagation();
         music.paused ? playMusic() : pauseMusic();
       });
+      const reveals = document.querySelectorAll(".reveal");
+
+const revealObserver = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+      }
+    });
+  },
+  { threshold: 0.15 }
+);
+
+reveals.forEach(el => revealObserver.observe(el));
+
     </script>
 
   </body>
