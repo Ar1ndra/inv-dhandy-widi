@@ -1,71 +1,527 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wedding Invitation</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!DOCTYPE html>
+  <html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Undangan Pernikahan</title>
 
-    <!-- WhatsApp Preview -->
-  <meta property="og:title" content="Dhandy & Widi - Pernikahan">
-  <meta property="og:description" content="Undangan Pernikahan · 9 Januari 2026 · Denpasar">
-  <meta property="og:image" content="https://inv-dhandy-widi.vercel.app/assets/preview-wa.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://inv-dhandy-widi.vercel.app/undangan">
-  <link rel="canonical" href="https://inv-dhandy-widi.vercel.app/undangan">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+      body { font-family: 'Inter', sans-serif; }
+      h1, h2, h3 { font-family: 'Playfair Display', serif; }
+
+      .count-box {
+        width: 90px;
+        height: 90px;
+        border-radius: 1.5rem;
+        background: #f9f7f4;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        box-shadow: 0 12px 30px rgba(0,0,0,.08);
+        transition: transform .3s ease;
+      }
+      .count-box:hover { transform: translateY(-6px); }
+      .count-box span { font-size: 1.75rem; font-weight: 600; }
+      .count-box p {
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        margin-top: 4px;
+        color: #555;
+      }
+      .pop { animation: pop .3s ease; }
+      @keyframes pop {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.15); }
+        100% { transform: scale(1); }
+      }
+      .reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.9s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+    </style>
+  </head>
+  <body class="bg-black text-gray-800">
+
+    <!-- Hero (Revised) -->
+    <section class="reveal relative min-h-screen flex items-center justify-center text-center px-6 overflow-hidden">
 
 
-</head>
+    <!-- Background -->
+    <div class="absolute inset-0">
+    <img src="/assets/prewed-4.jpg" class="w-full h-full object-cover blur-sm scale-105 brightness-75" />
+    <div class="absolute inset-0 bg-black/50"></div>
+    </div>
 
-<body class="h-screen flex items-center justify-center bg-black text-white">
 
-  <!-- Background -->
-  <div class="absolute inset-0">
-    <img src="assets/prewed-1.jpg"
-         class="w-full h-full object-cover blur-sm brightness-50">
-  </div>
+    <!-- Content -->
+    <div class="relative z-10 text-white max-w-xl">
+    <p class="uppercase tracking-[0.3em] text-xs mb-6">Wedding Invitation</p>
+    <h1 class="text-4xl md:text-5xl font-semibold mb-4">Dhandy & Widi</h1>
+    <p class="italic mb-8">Jumat, 9 Januari 2026</p>
 
-  <!-- Content -->
-  <div class="relative z-10 text-center px-6">
-    <p class="uppercase tracking-widest text-sm mb-4">Wedding Invitation</p>
-    <h1 class="text-4xl mb-6 font-serif">Dhandy & Widi</h1>
 
-    <p class="mb-10">
-      Kepada Yth.<br>
-      <span id="guest-name" class="font-semibold">Tamu Undangan</span>
+    <div class="mt-10">
+    <p class="text-sm opacity-80">Kepada Yth.</p>
+    <p id="guest-name" class="text-lg font-semibold">Tamu Undangan</p>
+    </div>
+    </div>
+
+
+    </section>
+
+
+    <section
+    class="reveal relative min-h-screen flex items-center justify-center text-white px-6"
+    style="background-image: url('/assets/prewed13.jpg'); background-size: cover; background-position: center;"
+  >
+    <!-- overlay -->
+    <div class="absolute inset-0 bg-black/90"></div>
+
+    <!-- content -->
+    <div class="relative z-10 max-w- text-center">
+      <h2 class="font-[Playfair_Display] text-3xl md:text-4xl tracking-widest mb-8">
+        OM SWASTYASTU
+      </h2>
+  <div class="max-w-md mx-auto">
+    <p class="text-center leading-relaxed">
+      Atas Asung Kertha Wara Nugraha Ida Sang Hyang Widhi Wasa,
+      Tuhan Yang Maha Esa, kami bermaksud mengundang
+      Bapak / Ibu / Saudara / i pada Upacara Manusa Yadnya
+      Pawiwahan putra dan putri kami.
     </p>
-
-    <a id="open-btn"
-       class="inline-block border border-white px-8 py-3 rounded-full hover:bg-white hover:text-black transition">
-       Buka Undangan
-    </a>
   </div>
 
-  <audio id="bg-music" loop preload="auto">
-  <source src="assets/song.mp3" type="audio/mpeg">
-  </audio>
+    </div>
+  </section>
 
-<script>
-  const music = document.getElementById("bg-music");
-  window.addEventListener("load", () => {
-    music.play().catch(() => {});
+
+    <!-- section pengantin -->
+    <section
+    class="reveal relative min-h-screen flex items-end text-white px-6 pb-20"
+    style="background-image: url('/assets/Dandot.JPG'); background-size: cover; background-position: center;"
+  >
+    <!-- overlay -->
+    <div class="absolute inset-0 bg-black/50"></div>
+
+    <!-- content -->
+    <div class="relative z-10 max-w-xl">
+      <p class="uppercase tracking-widest text-sm mb-2">
+        Mempelai Pria
+      </p>
+
+      <h2 class="font-[Playfair_Display] text-3xl md:text-4xl mb-4">
+        I Ketut Dhandy Perdana Putra
+      </h2>
+
+      <p class="text-sm leading-relaxed opacity-90">
+        Putra Keempat dari pasangan<br>
+        Bapak I Made Ardika Atmaja<br>
+        & Ibu Nitya Damayanti
+      </p>
+
+      <a
+        href="https://instagram.com/_dandyputraa"
+        target="_blank"
+        class="inline-flex items-center gap-2 mt-6 bg-black/50 px-5 py-2 rounded-full text-sm"
+      >
+        @_dandyputraa
+      </a>
+    </div>
+  </section>
+
+  <section
+    class="reveal relative min-h-screen flex items-end text-white px-6 pb-20"
+    style="background-image: url('/assets/kakWidi.JPG'); background-size: cover; background-position: center;"
+  >
+    <!-- overlay -->
+    <div class="absolute inset-0 bg-black/50"></div>
+
+    <!-- content -->
+    <div class="relative z-10 max-w-xl">
+      <p class="uppercase tracking-widest text-sm mb-2">
+        Mempelai Wanita
+      </p>
+
+      <h2 class="font-[Playfair_Display] text-3xl md:text-4xl mb-4">
+        Sri Wasiwasundari Widi Tati
+      </h2>
+
+      <p class="text-sm leading-relaxed opacity-90">
+        Putri Pertama dari pasangan<br>
+        Bapak I Ketut Ariawan (Alm)<br>
+        & Ibu Ni Kadek Kariani
+      </p>
+
+      <a
+        href="https://instagram.com/sundaryy13"
+        target="_blank"
+        class="inline-flex items-center gap-2 mt-6 bg-black/50 px-5 py-2 rounded-full text-sm"
+      >
+        @sundaryy13
+      </a>
+    </div>
+  </section>
+
+    <!-- Divider -->
+    <div class="flex justify-center my-6">
+    </div>
+    
+    <!-- Prewedding Album -->
+    <section class="px-6 mb-24">
+      <h2 class="text-3xl text-white text-center mb-12">Our Moments</h2>
+      <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 auto-rows-[180px] gap-4">
+        <div class="reveal col-span-2 row-span-2"><img src="/assets/prewed-1.jpg" class="w-full h-full object-cover rounded-2xl"></div>
+        <div class="reveal row-span-2"><img src="/assets/prewed-2.jpg" class="w-full h-full object-cover rounded-2xl"></div>
+        <div class="reveal"><img src="/assets/prewed14.jpg" class="w-full h-full object-cover rounded-2xl"></div>
+        <div class="reveal"><img src="/assets/prewed-4.jpg" class="w-full h-full object-cover rounded-2xl"></div>
+        <div class="reveal col-span-2 row-span-2"><img src="/assets/prewed-6.jpg" class="w-full h-full object-cover rounded-2xl"></div>
+      </div>
+    </section>
+
+  <section
+    class="reveal relative min-h-screen flex items-center justify-center text-center text-white px-6"
+    style="background-image: url('/assets/prewed-5.jpg'); background-size: cover; background-position: center;"
+  >
+    <!-- overlay tipis -->
+    <div class="absolute inset-0 bg-black/80"></div>
+
+    <!-- content -->
+    <div class="relative z-10 max-w-xl">
+      <p class="uppercase tracking-[0.3em] text-sm mb-4">
+        Save Our Date
+      </p>
+
+      <h2 class="text-4xl md:text-5xl font-semibold mb-6">
+        Resepsi
+      </h2>
+
+      <p class="uppercase tracking-widest mb-4">
+        Jumat, 09 Januari 2026
+      </p>
+
+      <p class="text-sm leading-relaxed mb-8">
+        Pukul 18.00 – 21.00 WITA<br><br>
+        Jl. Sutomo Gang Suar No.82c,<br>
+        Pemecutan Kaja, Kec. Denpasar Utara,<br>
+        Kota Denpasar, Bali
+      </p>
+
+      <a
+        href="https://maps.app.goo.gl/yQvBQCAaztFy5Dq77"
+        target="_blank"
+        class="inline-block uppercase tracking-widest text-sm border-b border-white pb-1 mb-6"
+      >
+        Google Maps
+      </a>
+    </div>
+  </section>
+
+  <section
+    id="countdown-section"
+    class="reveal relative min-h-screen flex flex-col justify-end text-white px-6 pb-16"
+    style="background-image: url('/assets/prewed-6.jpg'); background-size: cover; background-position: center;"
+  >
+    <!-- overlay tipis -->
+    <div class="absolute inset-0 bg-black/50"></div>
+
+    <!-- content -->
+    <div class="relative z-10 text-center">
+      <p class="uppercase tracking-[0.35em] text-sm mb-3">
+        Save Our Date
+      </p>
+
+      <h2 class="font-[Playfair_Display] text-3xl md:text-4xl mb-10">
+        Dhandy & Widi
+      </h2>
+
+      <!-- countdown box -->
+      <div class="flex justify-center gap-3 mb-4">
+        <div class="bg-black/45 rounded-2xl w-20 h-20 flex flex-col justify-center">
+          <span id="days" class="text-2xl font-semibold">0</span>
+          <p class="text-[10px] uppercase tracking-widest mt-1">Hari</p>
+        </div>
+
+        <div class="bg-black/45 rounded-2xl w-20 h-20 flex flex-col justify-center">
+          <span id="hours" class="text-2xl font-semibold">0</span>
+          <p class="text-[10px] uppercase tracking-widest mt-1">Jam</p>
+        </div>
+
+        <div class="bg-black/45 rounded-2xl w-20 h-20 flex flex-col justify-center">
+          <span id="minutes" class="text-2xl font-semibold">0</span>
+          <p class="text-[10px] uppercase tracking-widest mt-1">Menit</p>
+        </div>
+
+        <div class="bg-black/45 rounded-2xl w-20 h-20 flex flex-col justify-center">
+          <span id="seconds" class="text-2xl font-semibold">0</span>
+          <p class="text-[10px] uppercase tracking-widest mt-1">Detik</p>
+        </div>
+      </div>
+
+      <p class="uppercase tracking-[0.3em] text-xs opacity-80">
+        Days To Go
+      </p>
+    </div>
+  </section>
+
+ <!-- Section RSVP -->
+  <section class="reveal relative py-28 px-6">
+  <!-- background image -->
+  <div
+    class="absolute inset-0 bg-cover bg-center"
+    style="background-image:url('/assets/prewed-5.jpg')">
+  </div>
+
+  <!-- dark overlay -->
+  <div class="absolute inset-0 bg-black/80"></div>
+
+  <!-- content -->
+  <div class="relative flex justify-center">
+    <div class="w-full max-w-xl bg-white/90 backdrop-blur rounded-[28px] px-8 py-10 border border-[#c6a87d] shadow-xl">
+
+      <h2 class="text-center text-3xl font-serif text-[#b89b72] mb-4 tracking-wide">
+        RSVP
+      </h2>
+
+      <p class="text-center text-sm text-gray-600 mb-8 leading-relaxed">
+        Konfirmasi kehadiran Bapak/Ibu/Saudara/i
+        <br />
+        melalui form berikut
+      </p>
+
+      <form 
+      id="rsvp-form"
+      action="https://docs.google.com/forms/d/e/FORM_ID/formResponse"
+      method="POST"
+      target="hidden_iframe"
+      class="space-y-8">
+
+        <!-- Nama -->
+        <div>
+          <label class="block text-xs tracking-widest uppercase mb-2 text-gray-700">
+            Nama
+          </label>
+          <input
+            name="entry.849839770"
+            type="text"
+            placeholder="Nama Anda"
+            class="w-full bg-transparent border-b border-gray-400 py-3 focus:outline-none focus:border-[#b89b72] transition"
+            required
+          />
+        </div>
+
+        <!-- Kehadiran -->
+        <div>
+          <label class="block text-xs tracking-widest uppercase mb-2 text-gray-700">
+            Jumlah Kehadiran
+          </label>
+          <select
+            name="entry.575386460"
+            class="w-full bg-transparent border-b border-gray-400 py-3 focus:outline-none focus:border-[#b89b72] transition"
+            required
+          >
+            <option value="">Pilih</option>
+            <option>1 Orang</option>
+            <option>2 Orang</option>
+          </select>
+        </div>
+
+        <!-- Ucapan -->
+      <div>
+        <label class="block text-xs tracking-widest uppercase mb-2 text-gray-700">
+          Ucapan & Doa
+        </label>
+        <textarea
+          name="entry.1521114197"
+          rows="3"
+          placeholder="Tulis doa dan ucapan terbaik Anda..."
+          class="w-full bg-transparent border-b border-gray-400 py-3 resize-none focus:outline-none focus:border-[#b89b72] transition"
+        ></textarea>
+      </div>
+
+
+        <!-- Button -->
+        <div class="pt-8 flex justify-center">
+          <button
+            type="submit"
+            class="px-10 py-3 rounded-full bg-[#b89b72] text-white tracking-widest text-sm hover:opacity-90 transition"
+          >
+            KIRIM
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Section Penutup -->
+  <section
+  class="reveal relative min-h-screen bg-cover bg-center text-white"
+  style="background-image: url('/assets/prewed15.jpg');"
+>
+  <!-- overlay -->
+  <div class="absolute inset-0 bg-black/20"></div>
+
+  <!-- KONTEN UTAMA (ATAS) -->
+  <div class="relative z-10 px-6 pt-52 text-center">
+    <h2 class="tracking-[0.2em] text-sm mb-4">
+      MATUR SUKSMA
+    </h2>
+
+    <p class="max-w-md mx-auto text-sm leading-relaxed opacity-90">
+      Setiap ucapan dan doa yang Bapak/Ibu/Saudara/i berikan,
+      jadi bagian indah dalam cerita kami. Kami tak sabar
+      menyambutmu di hari spesial nanti.
+    </p>
+  </div>
+
+  <!-- CREDIT (BAWAH, TERPISAH) -->
+  <div class="absolute bottom-6 left-0 right-0 text-center text-xs opacity-60 z-10">
+    <p>create by Arindra</p>
+    <p class="mt-1">@ar1ndra._ · +62 896-9732-7675</p>
+  </div>
+</section>
+    
+    <!-- Music Button -->
+    <button id="music-btn"
+  class="fixed bottom-6 right-6 bg-white/10 backdrop-blur p-2 rounded-full shadow-md hover:scale-105 transition text-white">
+
+  <svg id="music-icon" xmlns="http://www.w3.org/2000/svg"
+    class="w-4 h-4"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    stroke-width="1.8">
+    <path stroke-linecap="round" stroke-linejoin="round"
+      d="M9 9v6l-3-3H4V9h2l3-3z" />
+    <path stroke-linecap="round" stroke-linejoin="round"
+      d="M16.5 8.5a5 5 0 010 7" />
+    <path stroke-linecap="round" stroke-linejoin="round"
+      d="M19 6a9 9 0 010 12" />
+  </svg>
+
+</button>
+
+
+    <audio id="bg-music" loop preload="auto">
+    <source src="/assets/song.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+      const song = document.getElementById("bg-music");
+      window.addEventListener("load", () => {
+        song.play().catch(() => {});
+      });
+    </script>
+
+    <script>
+      const url = new URL(window.location.href);
+      const guest = url.searchParams.get("to");
+      if (guest) document.getElementById("guest-name").textContent = guest.replace(/\+/g, " ");
+
+      const targetDate = new Date("2026-01-09T09:00:00").getTime();
+      const update = (id, val) => {
+        const el = document.getElementById(id);
+        if (el.textContent !== String(val)) {
+          el.textContent = val;
+          el.classList.add("pop");
+          setTimeout(() => el.classList.remove("pop"), 300);
+        }
+      };
+
+      setInterval(() => {
+        const diff = targetDate - Date.now();
+        if (diff <= 0) return;
+        update("days", Math.floor(diff / 86400000));
+        update("hours", Math.floor((diff % 86400000) / 3600000));
+        update("minutes", Math.floor((diff % 3600000) / 60000));
+        update("seconds", Math.floor((diff % 60000) / 1000));
+      }, 1000);
+
+      const observer = new IntersectionObserver(e => {
+        e.forEach(i => i.isIntersecting && i.target.classList.remove("opacity-0", "translate-y-10"));
+      }, { threshold: 0.3 });
+      observer.observe(document.getElementById("countdown-section"));
+
+      const music = document.getElementById("bg-music");
+      // MUSIC FUNCTION
+      const musicBtn = document.getElementById("music-btn");
+
+      const playMusic = () => {
+        music.play();
+        musicBtn.textContent = "🔊";
+      };
+
+      const pauseMusic = () => {
+        music.pause();
+        musicBtn.textContent = "🔇";
+      };
+
+      // Autoplay music on first user interaction (anywhere on page)
+      const startMusicOnce = () => {
+        if (music.paused) playMusic();
+        document.removeEventListener("pointerdown", startMusicOnce);
+        document.removeEventListener("touchstart", startMusicOnce);
+      };
+
+      document.addEventListener("pointerdown", startMusicOnce);
+      document.addEventListener("touchstart", startMusicOnce);
+
+      musicBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        music.paused ? playMusic() : pauseMusic();
+      });
+      const reveals = document.querySelectorAll(".reveal");
+
+const revealObserver = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+      }
+    });
+  },
+  { threshold: 0.15 }
+);
+
+reveals.forEach(el => revealObserver.observe(el));
+
+    </script>
+    <script>
+  const form = document.getElementById("rsvp-form");
+
+  form.addEventListener("submit", () => {
+    setTimeout(() => {
+      form.style.display = "none";
+
+      form.insertAdjacentHTML(
+        "afterend",
+        "<p>Terima kasih atas doa dan kehadirannya 🤍</p>"
+      );
+
+      form.scrollIntoView({ behavior: "smooth" });
+    }, 1000);
   });
 </script>
 
 
-  <script>
-    const url = new URL(window.location.href);
-    const guest = url.searchParams.get("to");
-    if (guest) {
-      document.getElementById("guest-name").textContent =
-        guest.replace(/\+/g, " ");
-    }
-
-    document.getElementById("open-btn").href =
-      `invitation.html?to=${guest ?? ""}`;
-  </script>
-
-</body>
-</html>
+  </body>
+  </html>

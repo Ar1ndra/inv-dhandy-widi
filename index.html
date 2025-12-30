@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wedding Invitation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- WhatsApp Preview -->
+  <meta property="og:title" content="Dhandy & Widi - Pernikahan">
+  <meta property="og:description" content="Undangan Pernikahan · 9 Januari 2026 · Denpasar">
+  <meta property="og:image" content="https://inv-dhandy-widi.vercel.app/assets/preview-wa.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://inv-dhandy-widi.vercel.app/undangan">
+  <link rel="canonical" href="https://inv-dhandy-widi.vercel.app/undangan">
+
+
+</head>
+
+<body class="h-screen flex items-center justify-center bg-black text-white">
+
+  <!-- Background -->
+  <div class="absolute inset-0">
+    <img src="assets/prewed-1.jpg"
+         class="w-full h-full object-cover blur-sm brightness-50">
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 text-center px-6">
+    <p class="uppercase tracking-widest text-sm mb-4">Wedding Invitation</p>
+    <h1 class="text-4xl mb-6 font-serif">Dhandy & Widi</h1>
+
+    <p class="mb-10">
+      Kepada Yth.<br>
+      <span id="guest-name" class="font-semibold">Tamu Undangan</span>
+    </p>
+
+    <a id="open-btn"
+       class="inline-block border border-white px-8 py-3 rounded-full hover:bg-white hover:text-black transition">
+       Buka Undangan
+    </a>
+  </div>
+
+  <audio id="bg-music" loop preload="auto">
+  <source src="assets/song.mp3" type="audio/mpeg">
+  </audio>
+
+<script>
+  const music = document.getElementById("bg-music");
+  window.addEventListener("load", () => {
+    music.play().catch(() => {});
+  });
+</script>
+
+
+  <script>
+    const url = new URL(window.location.href);
+    const guest = url.searchParams.get("to");
+    if (guest) {
+      document.getElementById("guest-name").textContent =
+        guest.replace(/\+/g, " ");
+    }
+
+    document.getElementById("open-btn").href =
+      `undangan/?to=${guest ?? ""}`;
+  </script>
+ 
+</body>
+</html>
