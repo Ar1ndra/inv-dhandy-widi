@@ -279,81 +279,111 @@
     </div>
   </section>
 
- <form 
-  id="rsvp-form"
-  action="https://docs.google.com/forms/d/e/FORM_ID/formResponse"
-  method="POST"
-  target="hidden_iframe"
-  class="space-y-8">
-
-  <!-- Nama -->
-  <div>
-    <label class="block text-xs tracking-widest uppercase mb-2 text-gray-700">
-      Nama
-    </label>
-    <input
-      name="entry.849839770"
-      type="text"
-      placeholder="Nama Anda"
-      class="w-full bg-transparent border-b border-gray-400 py-3 focus:outline-none focus:border-[#b89b72] transition"
-      required
-    />
+<!-- Section RSVP -->
+<section class="reveal relative py-28 px-6">
+  <!-- background image -->
+  <div
+    class="absolute inset-0 bg-cover bg-center"
+    style="background-image:url('/assets/prewed-5.jpg')">
   </div>
 
-  <!-- Kehadiran -->
-  <div>
-    <label class="block text-xs tracking-widest uppercase mb-2 text-gray-700">
-      Jumlah Kehadiran
-    </label>
-    <select
-      name="entry.575386460"
-      class="w-full bg-transparent border-b border-gray-400 py-3 focus:outline-none focus:border-[#b89b72] transition"
-      required
-    >
-      <option value="">Pilih</option>
-      <option>1 Orang</option>
-      <option>2 Orang</option>
-    </select>
-  </div>
+  <!-- dark overlay -->
+  <div class="absolute inset-0 bg-black/80"></div>
 
-  <!-- Ucapan -->
-  <div>
-    <label class="block text-xs tracking-widest uppercase mb-2 text-gray-700">
-      Ucapan & Doa
-    </label>
-    <textarea
-      name="entry.1521114197"
-      rows="3"
-      placeholder="Tulis doa dan ucapan terbaik Anda..."
-      class="w-full bg-transparent border-b border-gray-400 py-3 resize-none focus:outline-none focus:border-[#b89b72] transition"
-    ></textarea>
-  </div>
+  <!-- content -->
+  <div class="relative flex justify-center">
+    <div class="w-full max-w-xl bg-white/90 backdrop-blur rounded-[28px] px-8 py-10 border border-[#c6a87d] shadow-xl">
 
-  <button
-    type="submit"
-    class="w-full mt-6 py-3 rounded-full border border-[#b89b72] text-[#b89b72] hover:bg-[#b89b72] hover:text-white transition"
-  >
-    Kirim
-  </button>
-</form>
-<iframe name="hidden_iframe" style="display:none;"></iframe>
+      <h2 class="text-center text-3xl font-serif text-[#b89b72] mb-4 tracking-wide">
+        RSVP
+      </h2>
 
+      <p class="text-center text-sm text-gray-600 mb-8 leading-relaxed">
+        Konfirmasi kehadiran Bapak/Ibu/Saudara/i
+        <br />
+        melalui form berikut
+      </p>
 
+      <form 
+        id="rsvp-form"
+        action="https://docs.google.com/forms/d/e/1FAIpQLScDWZOJY9aL41TPyxNxYIdRwAfcQgsQz7y1rRKTLaH9VAADKg/formResponse"
+        method="POST"
+        target="_self"
+        class="space-y-8">
+        
 
-        <!-- Button -->
-        <div class="pt-8 flex justify-center">
-          <button
-            type="submit"
-            class="px-10 py-3 rounded-full bg-[#b89b72] text-white tracking-widest text-sm hover:opacity-90 transition"
-          >
-            KIRIM
-          </button>
+        <!-- Nama -->
+        <div>
+          <label class="block text-xs tracking-widest uppercase mb-2 text-gray-700">
+            Nama
+          </label>
+          <input
+            name="entry.849839770"
+            type="text"
+            placeholder="Nama Anda"
+            class="w-full bg-transparent border-b border-gray-400 py-3 focus:outline-none focus:border-[#b89b72] transition"
+            required
+          />
         </div>
 
+        <!-- Kehadiran -->
+        <div>
+          <label class="block text-xs tracking-widest uppercase mb-2 text-gray-700">
+            Jumlah Kehadiran
+          </label>
+          <select
+            name="entry.575386460"
+            class="w-full bg-transparent border-b border-gray-400 py-3 focus:outline-none focus:border-[#b89b72] transition"
+            required
+          >
+            <option value="">Pilih</option>
+            <option value="1 Orang">1 Orang</option>
+            <option value="2 Orang">2 Orang</option>
+            <option value="3 Orang">3 Orang</option>
+            <option value="4 Orang">4 Orang</option>
+          </select>
+        </div>
+
+        <!-- Ucapan -->
+        <div>
+          <label class="block text-xs tracking-widest uppercase mb-2 text-gray-700">
+            Ucapan & Doa
+          </label>
+          <textarea
+            name="entry.1521114197"
+            rows="3"
+            placeholder="Tulis doa dan ucapan terbaik Anda..."
+            class="w-full bg-transparent border-b border-gray-400 py-3 resize-none focus:outline-none focus:border-[#b89b72] transition"
+          ></textarea>
+        </div>
+
+        <!-- Submit -->
+        <button
+          type="submit"
+          class="w-full mt-6 py-3 rounded-full border border-[#b89b72] text-[#b89b72] hover:bg-[#b89b72] hover:text-white transition"
+        >
+          Kirim
+        </button>
+
       </form>
+      <div 
+  id="success-message"
+  class="hidden text-center opacity-0 translate-y-4 transition-all duration-700">
+  <h3 class="text-2xl font-serif text-[#b89b72] mb-3">
+    Terima Kasih 🤍
+  </h3>
+  <p class="text-sm text-gray-600 leading-relaxed">
+    Kehadiran dan doa Anda<br>
+    sangat berarti bagi kami.
+  </p>
+</div>
     </div>
   </div>
 </section>
+
+<!-- iframe WAJIB -->
+<iframe name="hidden_iframe" style="display:none;"></iframe>
+
 
 
 
@@ -384,6 +414,16 @@
     <p class="mt-1">@ar1ndra._ · +62 896-9732-7675</p>
   </div>
 </section>
+
+<form
+  action="https://docs.google.com/forms/d/e/1FAIpQLScDWZOJY9aL41TPyxNxYIdRwAfcQgsQz7y1rRKTLaH9VAADKg/formResponse"
+  method="POST"
+  target="_self">
+
+  <input name="entry.849839770" value="TEST NAMA">
+  <button type="submit">TEST</button>
+</form>
+
     
     <!-- Music Button -->
     <button id="music-btn"
@@ -490,23 +530,6 @@ const revealObserver = new IntersectionObserver(
 reveals.forEach(el => revealObserver.observe(el));
 
     </script>
-    <script>
-  const form = document.getElementById("rsvp-form");
-
-  form.addEventListener("submit", () => {
-    setTimeout(() => {
-      form.style.display = "none";
-
-      form.insertAdjacentHTML(
-        "afterend",
-        "<p>Terima kasih atas doa dan kehadirannya 🤍</p>"
-      );
-
-      form.scrollIntoView({ behavior: "smooth" });
-    }, 1000);
-  });
-</script>
-
-
+  
   </body>
   </html>
